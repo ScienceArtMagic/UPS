@@ -1,6 +1,6 @@
 import { isExpoGo } from './utils/is-expo-go'
 
-export const UPS = async ({
+const UPS = async ({
   isEncrypted = false,
   // eslint-disable-next-line eslint-plugin/no-unused-vars
   driver = undefined, // web only
@@ -61,3 +61,5 @@ export const UPS = async ({
     }
   }
 }
+
+export default UPS

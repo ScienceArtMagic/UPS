@@ -1,6 +1,6 @@
 {
   "name": "@scienceartmagic/ups",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "UPS (Universal Persistent Storage): Wrapper around persistence libraries for use in Expo Go, bare/standalone Expo/React Native apps, and web/Electron",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",

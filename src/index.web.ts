@@ -13,7 +13,7 @@ export default async function UPS({
   const LF = localforage.createInstance({ driver })
   if (__DEV__) {
     console.log(
-      `UPS (Universal Persistence Storage) is running with localforage using ${driver}`,
+      `UPS (Universal Persistence Storage) is running with localforage using ${localforage.driver()}`,
     )
     if (isEncrypted) {
       console.warn(
