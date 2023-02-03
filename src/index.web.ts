@@ -1,19 +1,21 @@
 import * as localforage from 'localforage'
 
 export default async function UPS({
-  driver = localforage.INDEXEDDB,
   isEncrypted = false, // iOS/Android only
+  // preferSecureStore = false,
+  driver = localforage.INDEXEDDB,
 }: {
   isEncrypted?: boolean
+  // preferSecureStore?: boolean
   driver?:
-    | typeof localforage.INDEXEDDB
-    | typeof localforage.LOCALSTORAGE
-    | typeof localforage.WEBSQL
+    | LocalForage['INDEXEDDB']
+    | LocalForage['WEBSQL']
+    | LocalForage['LOCALSTORAGE']
 }) {
   const LF = localforage.createInstance({ driver })
   if (__DEV__) {
     console.log(
-      `UPS (Universal Persistence Storage) is running with localforage using ${localforage.driver()}`,
+      `UPS (Universal Persistence Storage) is running with localforage using ${driver}`,
     )
     if (isEncrypted) {
       console.warn(

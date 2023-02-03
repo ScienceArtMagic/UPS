@@ -1,14 +1,12 @@
 import { isExpoGo } from './utils/is-expo-go'
 
 const UPS = async ({
-  isEncrypted = false,
   // eslint-disable-next-line eslint-plugin/no-unused-vars
-  driver = undefined, // web only
-}: {
-  isEncrypted?: boolean
-  driver?: string
+  // driver, // web only
+  isEncrypted = false,
+  preferSecureStore = true,
 }) => {
-  if (isEncrypted && isExpoGo) {
+  if (isEncrypted && (isExpoGo || preferSecureStore)) {
     const secureStore = await import('expo-secure-store')
     if (__DEV__) {
       console.log(
@@ -39,10 +37,10 @@ const UPS = async ({
   } else {
     const MMKV = (await import('react-native-mmkv')).MMKV
     const mmkv = new MMKV()
-    isEncrypted
+    isEncrypted && !preferSecureStore
       ? mmkv.recrypt(
           (await import('expo-random'))
-            .getRandomBytes(5)
+            .getRandomBytes(8)
             .toString()
             .substring(0, 16),
         )

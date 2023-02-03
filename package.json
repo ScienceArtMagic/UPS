@@ -1,18 +1,18 @@
 {
   "name": "@scienceartmagic/ups",
-  "version": "0.0.3",
-  "description": "UPS (Universal Persistent Storage): Wrapper around persistence libraries for use in Expo Go, bare/standalone Expo/React Native apps, and web/Electron",
+  "version": "0.0.5",
+  "description": "UPS (Universal Persistence Storage): Wrapper around persistence libraries for use in Expo Go, bare/standalone Expo/React Native apps, and web/Electron",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
   "react-native": "lib/module/index",
-  "types": "lib/typescript/index.d.ts",
+  "types": "lib/typescript/index",
   "author": "Science/Art/Magic",
   "license": "MIT",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "typecheck": "tsc --skipLibCheck --noEmit",
     "build": "bob build",
-    "lint": "eslint --ext .ts,.js,.tsx ."
+    "lint": "eslint --ext .ts,.js,.tsx,.jsx ."
   },
   "husky": {
     "hooks": {
