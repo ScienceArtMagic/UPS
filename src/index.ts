@@ -1,11 +1,6 @@
 import { isExpoGo } from './utils/is-expo-go'
 
-const UPS = async ({
-  // eslint-disable-next-line eslint-plugin/no-unused-vars
-  // driver, // web only
-  isEncrypted = false,
-  preferSecureStore = true,
-}) => {
+const UPS = async ({ isEncrypted = false, preferSecureStore = true }) => {
   if (isEncrypted && (isExpoGo || preferSecureStore)) {
     const secureStore = await import('expo-secure-store')
     if (__DEV__) {

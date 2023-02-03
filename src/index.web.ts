@@ -1,22 +1,15 @@
-import * as localforage from 'localforage'
+import { createInstance, INDEXEDDB } from 'localforage'
 
 export default async function UPS({
-  isEncrypted = false, // iOS/Android only
   // preferSecureStore = false,
-  driver = localforage.INDEXEDDB,
+  isEncrypted = false, // iOS/Android only
 }: {
-  isEncrypted?: boolean
   // preferSecureStore?: boolean
-  driver?:
-    | LocalForage['INDEXEDDB']
-    | LocalForage['WEBSQL']
-    | LocalForage['LOCALSTORAGE']
+  isEncrypted?: boolean
 }) {
-  const LF = localforage.createInstance({ driver })
+  const LF = createInstance({ driver: INDEXEDDB })
   if (__DEV__) {
-    console.log(
-      `UPS (Universal Persistence Storage) is running with localforage using ${driver}`,
-    )
+    console.log(`UPS (Universal Persistence Storage) is running with IndexedDB`)
     if (isEncrypted) {
       console.warn(
         'Encrypted localforage is not supported. Consider using more secure measures for storing sensitive data in the browser',
